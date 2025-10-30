@@ -19,6 +19,7 @@ return [
 
     'allowed_origins' => [
         'http://localhost:3000', // Untuk pengembangan lokal
+        'http://20.10.10.50:3000', // local development
         'https://pemiraif.com'
     ],
 
