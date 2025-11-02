@@ -37,7 +37,7 @@ class AuthController extends Controller
 
         [$username, $domain] = explode('@', $providerUser->email);
 
-        $whitelistPrefixes = ['19', '20', '21', '22', '23', '24'];
+        $whitelistPrefixes = ['21', '22', '23', '24', '25'];
         // $isWhitelisted = WhiteList::where('event_id', 1)->where('npm', $username)->exists();
 
         if (strpos($domain, 'student.upnjatim.ac.id') === false)
@@ -49,6 +49,10 @@ class AuthController extends Controller
 
         $user = User::query()->find(strtok($providerUser->email, '@'));
 
+        // dd($providerUser->name);
+        if (preg_match('/^\d{11}\s/', $providerUser->name)) {
+            $providerUser->name = substr($providerUser->name, 12);
+        } // check if user name starts with 8 digits number
         if (!$user) {
             $user = User::query()->create([
                 'name' => $providerUser->name,
@@ -76,22 +80,22 @@ class AuthController extends Controller
         return $user;
     }
 
-     /**
+    /**
      * Google OAuth Callback (Debugging)
      * @description Mengambil data pengguna dari Google OAuth setelah otentikasi. (Biasanya digunakan untuk proses debug atau pengembangan.)
      */
     public function callback()
     {
         // $user = Socialite::driver('google')->user();
-        
+
         // dd($user);
         return Socialite::driver('google')->user();
     }
 
-     /**
+    /**
      * Get Authenticated User
      * @description Mengambil data pengguna yang sedang login melalui token autentikasi.
-     * 
+     *
      * @status 200
      * @response User[]
      */

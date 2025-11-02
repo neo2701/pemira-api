@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'paths' => ['api/*', 'sanctum/csrf-cookie'], // Menentukan path yang diizinkan untuk CORS
+    'paths' => ['api/*', 'sanctum/csrf-cookie', 'auth/*'], // Menentukan path yang diizinkan untuk CORS
 
     'allowed_methods' => ['*'], // Mengizinkan semua metode HTTP (GET, POST, PUT, DELETE, OPTIONS)
 
