@@ -28,6 +28,7 @@ yarn-error.log
 .fleet
 .idea/
 .vscode/
+.zed/
 .DS_Store
 Thumbs.db
 
