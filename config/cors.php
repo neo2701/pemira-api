@@ -1,7 +1,6 @@
 <?php
 
 return [
-
     /*
     |----------------------------------------------------------------------
     | Cross-Origin Resource Sharing (CORS) Configuration
@@ -13,24 +12,24 @@ return [
     |
     */
 
-    'paths' => ['api/*', 'sanctum/csrf-cookie', 'auth/*'], // Menentukan path yang diizinkan untuk CORS
+    "paths" => ["api/*", "sanctum/csrf-cookie", "auth/*"], // Menentukan path yang diizinkan untuk CORS
 
-    'allowed_methods' => ['*'], // Mengizinkan semua metode HTTP (GET, POST, PUT, DELETE, OPTIONS)
+    "allowed_methods" => ["*"], // Mengizinkan semua metode HTTP (GET, POST, PUT, DELETE, OPTIONS)
 
-    'allowed_origins' => [
-        'http://localhost:3000', // Untuk pengembangan lokal
-        'http://20.10.10.50:3000', // local development
-        'https://pemiraif.com'
+    "allowed_origins" => [
+        "http://localhost:3000", // Untuk pengembangan lokal
+        "http://20.10.10.50:3000", // local development
+        "https://pemiraif.com",
+        "https://dev.pemiraif.com", // staging environment
     ],
 
-    'allowed_origins_patterns' => [], // Tidak ada pola khusus untuk origin yang diperbolehkan
+    "allowed_origins_patterns" => [], // Tidak ada pola khusus untuk origin yang diperbolehkan
 
-    'allowed_headers' => ['*'], // Mengizinkan semua header (misalnya X-XSRF-TOKEN, Authorization)
+    "allowed_headers" => ["*"], // Mengizinkan semua header (misalnya X-XSRF-TOKEN, Authorization)
 
-    'exposed_headers' => ['X-XSRF-TOKEN'], // Mengekspos header X-XSRF-TOKEN untuk diakses oleh frontend
+    "exposed_headers" => ["X-XSRF-TOKEN"], // Mengekspos header X-XSRF-TOKEN untuk diakses oleh frontend
 
-    'max_age' => 3600, // Durasi cache CORS dalam detik
+    "max_age" => 3600, // Durasi cache CORS dalam detik
 
-    'supports_credentials' => true, // Mendukung pengiriman kredensial (cookies, Authorization header)
-
+    "supports_credentials" => true, // Mendukung pengiriman kredensial (cookies, Authorization header)
 ];
