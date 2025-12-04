@@ -16,3 +16,17 @@ use Illuminate\Support\Facades\Route;
 
 // Route::get('/auth/login', [AuthController::class, 'loginTest']);
 // Route::get('/auth/callback', [AuthController::class, 'callback']);
+
+Route::get("/", function () {
+    return redirect()->away(env("APP_CLIENT_URL", "https://pemiraif.com"));
+});
+
+// handle non-existing routes
+Route::fallback(function () {
+    return response()->json(
+        [
+            "message" => "Resource not found.",
+        ],
+        404,
+    );
+});
